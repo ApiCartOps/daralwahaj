@@ -1,0 +1,41 @@
+# Robots.txt for DAW Tech Services
+# https://dawtechservices.com
+
+# Allow all bots
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.next/
+Disallow: /api/
+Disallow: /__*
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://dawtechservices.com/sitemap.xml
+Sitemap: https://dawtechservices.com/sitemap-0.xml
+
+# Set the crawl delay for all other bots
+User-agent: *
+Crawl-delay: 1
+Request-rate: 1/10

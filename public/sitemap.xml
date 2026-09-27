@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+  <!-- Main Homepage -->
+  <url>
+    <loc>https://dawtechservices.com/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dawtechservices.com/assets/photos/dc.jpg</image:loc>
+      <image:title>Data Center Services</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dawtechservices.com/assets/photos/cctv.jpg</image:loc>
+      <image:title>CCTV & Security Systems</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dawtechservices.com/assets/photos/fiber.jpg</image:loc>
+      <image:title>Fiber Optics & Structured Cabling</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dawtechservices.com/assets/photos/hvac.jpg</image:loc>
+      <image:title>HVAC Services</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dawtechservices.com/assets/photos/em.jpg</image:loc>
+      <image:title>Electromechanical Services</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dawtechservices.com/assets/photos/clean.jpg</image:loc>
+      <image:title>Facility Cleaning Services</image:title>
+    </image:image>
+    <mobile:mobile/>
+  </url>
+
+  <!-- Anchor Links/Sections -->
+  <url>
+    <loc>https://dawtechservices.com/#about</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://dawtechservices.com/#services</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://dawtechservices.com/#approach</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dawtechservices.com/#clients</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dawtechservices.com/#contact</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>
