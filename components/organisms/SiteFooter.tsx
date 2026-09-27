@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function SiteFooter() {
   return (
@@ -12,9 +13,21 @@ export function SiteFooter() {
             height={52}
             className="h-[52px] w-auto"
           />
-          <p className="m-0 font-body font-semibold text-[13px] leading-[1.6] tracking-[.14em] uppercase text-orange">
-            Smart solutions · Reliable services · A better tomorrow
-          </p>
+          <div className="flex flex-col items-end gap-4">
+            <p className="m-0 font-body font-semibold text-[13px] leading-[1.6] tracking-[.14em] uppercase text-orange">
+              Smart solutions · Reliable services · A better tomorrow
+            </p>
+            <Link
+              href="/assets/DAW-Tech-Company-Profile.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded bg-orange px-4 py-2 font-body text-sm font-semibold text-navy-deep transition-all hover:bg-orange-light active:scale-95"
+            >
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+              </svg>
+              Download Brochure
+            </Link>
+          </div>
         </div>
         <div className="my-6 h-px bg-white/14" />
         <div className="flex flex-wrap justify-between gap-4 font-body font-normal text-sm leading-[1.6]">
