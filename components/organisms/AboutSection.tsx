@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BlueprintFrame } from "@/components/atoms/BlueprintFrame";
 import { BulletListItem } from "@/components/atoms/BulletListItem";
 import { SectionKicker } from "@/components/atoms/SectionKicker";
@@ -27,6 +28,17 @@ export function AboutSection() {
             Our objective is to provide clients with dependable technical solutions that improve
             operational efficiency, safety, reliability, and long-term asset performance.
           </p>
+          <Link
+            href="/assets/DAW-Tech-Company-Profile.pdf"
+            download
+            className="mt-8 inline-flex items-center gap-2 rounded bg-accent px-5 py-3 font-body font-semibold text-white transition-all hover:bg-accent-600 active:scale-95"
+          >
+            <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 12a1 1 0 01-1-1V3.707L5.354 7.354a1 1 0 11-1.414-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 11-1.414 1.414L11 3.707V11a1 1 0 01-1 1z" />
+              <path d="M3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
+            </svg>
+            Download Company Profile
+          </Link>
         </div>
         <div className="grid content-start gap-8">
           <BlueprintFrame className="p-6 sm:p-9">
