@@ -23,7 +23,8 @@ export function SiteFooter() {
               className="inline-flex items-center gap-2 rounded bg-orange px-4 py-2 font-body text-sm font-semibold text-navy-deep transition-all hover:bg-orange-light active:scale-95"
             >
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                <path d="M4 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4zm0 2h12v10H4V5z" />
+                <path d="M7 7h6v2H7V7zm0 3h6v2H7v-2zm0 3h3v2H7v-2z" />
               </svg>
               Download Brochure
             </Link>

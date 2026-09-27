@@ -34,8 +34,8 @@ export function AboutSection() {
             className="mt-8 inline-flex items-center gap-2 rounded bg-accent px-5 py-3 font-body font-semibold text-white transition-all hover:bg-accent-600 active:scale-95"
           >
             <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 12a1 1 0 01-1-1V3.707L5.354 7.354a1 1 0 11-1.414-1.414l5-5a1 1 0 011.414 0l5 5a1 1 0 11-1.414 1.414L11 3.707V11a1 1 0 01-1 1z" />
-              <path d="M3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
+              <path d="M4 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4zm0 2h12v10H4V5z" />
+              <path d="M7 7h6v2H7V7zm0 3h6v2H7v-2zm0 3h3v2H7v-2z" />
             </svg>
             Download Company Profile
           </Link>
