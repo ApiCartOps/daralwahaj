@@ -7,7 +7,7 @@ import { pad } from "@/data/services";
 export function ClientsSection() {
   return (
     <section id="clients" className="scroll-mt-[72px]">
-      <div className="mx-auto grid max-w-[1280px] gap-12 px-5 py-[clamp(72px,9vw,128px)] sm:px-16 lg:grid-cols-2 lg:gap-24">
+      <div className="mx-auto grid max-w-[1280px] gap-12 px-5 py-[clamp(48px,6vw,80px)] sm:px-16 lg:grid-cols-2 lg:gap-24">
         <div>
           <SectionKicker>Quality &amp; safety</SectionKicker>
           <h2 className="font-heading font-semibold text-[clamp(30px,3.6vw,46px)] leading-[1.02] uppercase">

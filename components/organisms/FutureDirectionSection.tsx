@@ -1,7 +1,7 @@
 export function FutureDirectionSection() {
   return (
     <section className="border-t border-ink/12">
-      <div className="mx-auto grid max-w-[1280px] gap-6 px-5 py-[clamp(64px,8vw,112px)] sm:px-16 lg:grid-cols-2 lg:gap-24">
+      <div className="mx-auto grid max-w-[1280px] gap-6 px-5 py-[clamp(40px,5vw,64px)] sm:px-16 lg:grid-cols-2 lg:gap-24">
         <div>
           <p className="m-0 font-body font-semibold text-[13px] leading-none tracking-[.1em] uppercase text-accent">
             Future direction

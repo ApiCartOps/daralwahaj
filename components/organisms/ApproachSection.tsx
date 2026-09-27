@@ -14,7 +14,7 @@ export function ApproachSection() {
           backgroundSize: "64px 64px",
         }}
       />
-      <div className="relative mx-auto max-w-[1280px] px-5 py-[clamp(72px,9vw,128px)] sm:px-16">
+      <div className="relative mx-auto max-w-[1280px] px-5 py-[clamp(48px,6vw,80px)] sm:px-16">
         <p className="m-0 font-body font-semibold text-[13px] leading-none tracking-[.1em] uppercase text-orange">
           Our service approach
         </p>

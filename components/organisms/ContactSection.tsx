@@ -30,7 +30,7 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="scroll-mt-[72px] border-t border-ink/12">
-      <div className="mx-auto grid max-w-[1280px] gap-12 px-5 py-[clamp(72px,9vw,128px)] sm:px-16 lg:grid-cols-2 lg:gap-24">
+      <div className="mx-auto grid max-w-[1280px] gap-12 px-5 py-[clamp(48px,6vw,80px)] sm:px-16 lg:grid-cols-2 lg:gap-24">
         <div>
           <SectionKicker>Contact us</SectionKicker>
           <h2 className="font-heading font-semibold text-[clamp(34px,4.4vw,58px)] leading-none uppercase">

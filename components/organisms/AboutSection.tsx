@@ -6,7 +6,7 @@ import { MISSION } from "@/data/content";
 export function AboutSection() {
   return (
     <section id="about" className="scroll-mt-[72px]">
-      <div className="mx-auto grid max-w-[1280px] gap-10 px-5 py-[clamp(72px,9vw,128px)] sm:px-16 lg:grid-cols-2 lg:gap-24">
+      <div className="mx-auto grid max-w-[1280px] gap-10 px-5 py-[clamp(48px,6vw,80px)] sm:px-16 lg:grid-cols-2 lg:gap-24">
         <div>
           <SectionKicker>Company overview</SectionKicker>
           <h2 className="font-heading font-semibold text-[clamp(34px,4.4vw,58px)] leading-none uppercase">

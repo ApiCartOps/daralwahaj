@@ -32,7 +32,7 @@ export function ServicesSection() {
 
   return (
     <section id="services" className="scroll-mt-[72px] border-t border-ink/12">
-      <div className="mx-auto max-w-[1280px] px-5 py-[clamp(72px,9vw,128px)] sm:px-16">
+      <div className="mx-auto max-w-[1280px] px-5 py-[clamp(48px,6vw,80px)] sm:px-16">
         <SectionKicker>Our core services</SectionKicker>
         <h2 className="max-w-[18ch] font-heading font-semibold text-[clamp(34px,4.4vw,58px)] leading-none uppercase">
           Six disciplines, one service partner
