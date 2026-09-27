@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" fill="#062551"/>
+<rect x="10" y="20" width="80" height="50" fill="none" stroke="#0B4A8F" stroke-width="2"/>
+<circle cx="50" cy="55" r="12" fill="#F39A1E"/>
+<text x="50" y="80" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#F39A1E">DAW</text>
+</svg>
+</template>
+
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DAW Tech Services — Technical Solutions You Can Trust</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="ext-resource-dependency" content="assets/logo-main.png, assets/logo-white.png, favicon.svg, assets/placeholder-hero-dc.svg, assets/placeholder-hero-cctv.svg, assets/placeholder-hero-fiber.svg, assets/placeholder-hero-hvac.svg, assets/placeholder-hero-em.svg, assets/placeholder-hero-clean.svg, assets/placeholder-hero-dc.svg, assets/placeholder-hero-cctv.svg, assets/placeholder-hero-fiber.svg, assets/placeholder-hero-hvac.svg, assets/placeholder-hero-em.svg, assets/placeholder-hero-clean.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&amp;family=Barlow+Condensed:wght@500;600;700&amp;display=swap">
+<link rel="stylesheet" href="_ds/industry-94f44a51-1edf-441c-8c8d-4218937f6847/styles.css">
+<script src="_ds/industry-94f44a51-1edf-441c-8c8d-4218937f6847/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+:root{--color-accent:#0B4A8F;--color-accent-600:#093D77;--color-accent-700:#07315F;--color-accent-900:#062551}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f2f2f3;color:#1d1f20;font-family:var(--font-body);text-wrap:pretty;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#0B4A8F;text-decoration:none}
+a:hover{color:#F39A1E}
+::selection{background:#F39A1E;color:#041B3D}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</helmet>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:100;background:{{ headerBg }};border-bottom:1px solid {{ headerBorder }};backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .35s,border-color .35s">
+  <div style="max-width:1280px;margin:0 auto;padding:14px clamp(20px,5vw,64px);display:flex;align-items:center;gap:32px">
+    <a href="#top" style="display:flex;align-items:center;flex:none" aria-label="DAW Tech Services home">
+      <img src="assets/logo-main.png" alt="DAW Tech Services" style="height:clamp(34px,4vw,44px);width:auto;display:block;filter:invert({{ scrolled ? 0 : 1 }})">
+    </a>
+    <sc-if value="{{ isWide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:28px;margin-left:auto;align-items:center">
+        <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+          <a href="{{ l.href }}" style="color:{{ linkColor }};font:600 14px/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase;padding:8px 0" style-hover="color:#F39A1E">{{ l.label }}</a>
+        </sc-for>
+      </nav>
+      <a href="#contact" class="btn btn-primary blueprint" style="background:#F39A1E;border-color:#F39A1E;color:#041B3D;font:600 14px/1 var(--font-body);letter-spacing:.06em;text-transform:uppercase;padding:13px 20px" style-hover="background:#FFAE3D;color:#041B3D">Get in touch<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></a>
+    </sc-if>
+    <sc-if value="{{ isNarrow }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="margin-left:auto;width:44px;height:44px;display:grid;place-items:center;background:none;border:1px solid {{ headerBorderStrong }};color:{{ linkColor }};cursor:pointer">
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </sc-if>
+        <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 6h16"></path><path d="M4 12h16"></path><path d="M4 18h16"></path></svg>
+        </sc-if>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ showMobileMenu }}" hint-placeholder-val="{{ false }}">
+    <nav style="background:#f2f2f3;border-top:1px solid rgba(29,31,32,.12);padding:8px clamp(20px,5vw,64px) 20px;display:flex;flex-direction:column">
+      <sc-for list="{{ navLinks }}" as="l" hint-placeholder-count="5">
+        <a href="{{ l.href }}" onClick="{{ closeMenu }}" style="color:#1d1f20;font:600 20px/1 var(--font-heading);letter-spacing:.04em;text-transform:uppercase;padding:16px 0;border-bottom:1px solid rgba(29,31,32,.1)">{{ l.label }}</a>
+      </sc-for>
+      <a href="#contact" onClick="{{ closeMenu }}" class="btn btn-primary" style="margin-top:16px;background:#F39A1E;border-color:#F39A1E;color:#041B3D;justify-content:center;font:600 15px/1 var(--font-body);letter-spacing:.06em;text-transform:uppercase;padding:16px">Get in touch</a>
+    </nav>
+  </sc-if>
+</header>
+
+<section id="top" ref="{{ heroRef }}" onMouseMove="{{ onHeroMove }}" onMouseLeave="{{ onHeroLeave }}" data-screen-label="Hero" style="--mx:0;--my:0;--sy:0;position:relative;overflow:hidden;background:#062551;color:#fff;min-height:100svh;display:flex;flex-direction:column">
+  <div aria-hidden="true" style="position:absolute;inset:-60px;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:64px 64px;transform:translate3d(calc(var(--mx) * -14px),calc(var(--my) * -14px + var(--sy) * .35px),0);pointer-events:none"></div>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 72% 55%,rgba(11,74,143,.9),transparent 70%);pointer-events:none"></div>
+  <div aria-hidden="true" style="position:absolute;left:0;right:0;bottom:-2vw;text-align:center;font:700 27vw/0.8 var(--font-heading);letter-spacing:-.01em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);white-space:nowrap;transform:translate3d(calc(var(--mx) * -34px),calc(var(--sy) * .18px),0);pointer-events:none">DAWTECH</div>
+  <div aria-hidden="true" style="position:absolute;inset:0;transform:translate3d(calc(var(--mx) * 30px),calc(var(--my) * 24px + var(--sy) * -.2px),0);pointer-events:none">
+    <span style="position:absolute;left:8%;top:22%;width:17px;height:17px;background:linear-gradient(#F39A1E,#F39A1E) center/1px 100% no-repeat,linear-gradient(#F39A1E,#F39A1E) center/100% 1px no-repeat"></span>
+    <span style="position:absolute;right:6%;top:18%;width:17px;height:17px;background:linear-gradient(#F39A1E,#F39A1E) center/1px 100% no-repeat,linear-gradient(#F39A1E,#F39A1E) center/100% 1px no-repeat"></span>
+    <span style="position:absolute;left:46%;bottom:16%;width:17px;height:17px;background:linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,.5)) center/1px 100% no-repeat,linear-gradient(rgba(255,255,255,.5),rgba(255,255,255,.5)) center/100% 1px no-repeat"></span>
+  </div>
+
+  <div style="position:relative;flex:1;width:100%;max-width:1280px;margin:0 auto;box-sizing:border-box;padding:clamp(108px,14vh,150px) clamp(20px,5vw,64px) 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(32px,5vw,72px);align-items:center">
+    <div style="transform:translate3d(0,calc(var(--sy) * .22px),0);opacity:calc(1 - var(--sy) / 800)">
+      <div style="display:flex;align-items:center;gap:12px;font:600 13px/1 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:#F39A1E">
+        <span style="width:28px;height:1px;background:#F39A1E"></span>Technical Solutions You Can Trust
+      </div>
+      <div ref="{{ textRef }}">
+        <p style="margin:28px 0 0;font:600 14px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)">{{ cur.num }} / {{ total }} — Core service</p>
+        <h1 style="margin:14px 0 0;font:600 clamp(44px,6.2vw,90px)/.94 var(--font-heading);letter-spacing:.005em;text-transform:uppercase;color:#fff;min-height:1.9em">{{ cur.name }}</h1>
+        <p style="margin:22px 0 0;max-width:52ch;font:400 clamp(16px,1.3vw,18px)/1.6 var(--font-body);color:rgba(255,255,255,.8)">{{ cur.desc }}</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+        <button type="button" onClick="{{ exploreCurrent }}" class="btn btn-primary blueprint" style="background:#F39A1E;border-color:#F39A1E;color:#041B3D;font:600 15px/1 var(--font-body);letter-spacing:.06em;text-transform:uppercase;padding:16px 24px;gap:10px" style-hover="background:#FFAE3D">Explore service
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          <i class="corner tl" style="color:rgba(255,255,255,.55)"></i><i class="corner tr" style="color:rgba(255,255,255,.55)"></i><i class="corner bl" style="color:rgba(255,255,255,.55)"></i><i class="corner br" style="color:rgba(255,255,255,.55)"></i>
+        </button>
+        <a href="#contact" class="btn btn-ghost" style="color:#fff;border:1px solid rgba(255,255,255,.35);font:600 15px/1 var(--font-body);letter-spacing:.06em;text-transform:uppercase;padding:16px 24px" style-hover="background:rgba(255,255,255,.08);color:#fff">Request a quote</a>
+      </div>
+    </div>
+
+    <div ref="{{ stageRef }}" onPointerDown="{{ onDown }}" onPointerUp="{{ onUp }}" onMouseEnter="{{ onStageEnter }}" onMouseLeave="{{ onStageLeave }}" style="--cw:min(360px,64vw);position:relative;height:calc(var(--cw) * 1.25 + 60px);perspective:1500px;touch-action:pan-y;user-select:none">
+      <div style="position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(calc(var(--my) * -7deg)) rotateY(calc(var(--mx) * 9deg))">
+        <sc-for list="{{ slides }}" as="s" hint-placeholder-count="6">
+          <div data-card="" style="position:absolute;left:50%;top:50%;width:var(--cw);height:calc(var(--cw) * 1.25);margin:calc(var(--cw) * -.625) 0 0 calc(var(--cw) / -2);transform-style:preserve-3d;transition:transform .95s cubic-bezier(.2,.75,.2,1),opacity .95s,filter .95s;will-change:transform">
+            <div class="blueprint" style="position:absolute;inset:0;border:1px solid rgba(255,255,255,.3);background:#0A3470;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)">
+              <image-slot id="{{ s.slotId }}" shape="rect" placeholder="Drop a photo here"></image-slot>
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(4,27,61,.95) 0%,rgba(4,27,61,.55) 32%,transparent 58%);pointer-events:none"></div>
+              <div style="position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:space-between;font:600 12px/1 var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);pointer-events:none">
+                <span>DAW Tech</span><span style="color:#F39A1E">{{ s.num }}</span>
+              </div>
+              <div style="position:absolute;left:22px;right:22px;bottom:22px;pointer-events:none">
+                <div style="color:#F39A1E">{{ s.iconEl }}</div>
+                <h3 style="margin:12px 0 0;font:600 clamp(22px,2.2vw,30px)/1 var(--font-heading);text-transform:uppercase;color:#fff">{{ s.name }}</h3>
+              </div>
+              <i class="corner tl" style="color:rgba(255,255,255,.7)"></i><i class="corner tr" style="color:rgba(255,255,255,.7)"></i><i class="corner bl" style="color:rgba(255,255,255,.7)"></i><i class="corner br" style="color:rgba(255,255,255,.7)"></i>
+            </div>
+            <div data-hit="" onClick="{{ s.go }}" style="position:absolute;inset:0;z-index:5;cursor:pointer"></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:relative;width:100%;max-width:1280px;margin:0 auto;box-sizing:border-box;padding:0 clamp(20px,5vw,64px) 32px;display:flex;align-items:center;gap:20px">
+    <div style="display:flex;gap:8px;flex:none">
+      <button type="button" onClick="{{ prev }}" aria-label="Previous service" style="width:48px;height:48px;display:grid;place-items:center;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;cursor:pointer" style-hover="border-color:#F39A1E;color:#F39A1E"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg></button>
+      <button type="button" onClick="{{ next }}" aria-label="Next service" style="width:48px;height:48px;display:grid;place-items:center;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;cursor:pointer" style-hover="border-color:#F39A1E;color:#F39A1E"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></button>
+    </div>
+    <div style="flex:1;min-width:0;display:flex;gap:16px;overflow-x:auto;scrollbar-width:none">
+      <sc-for list="{{ slides }}" as="s" hint-placeholder-count="6">
+        <button type="button" onClick="{{ s.go }}" style="flex:1 0 118px;position:relative;text-align:left;background:none;border:0;padding:16px 0 4px;cursor:pointer;color:{{ s.segColor }};font:600 12px/1.25 var(--font-body);letter-spacing:.08em;text-transform:uppercase" style-hover="color:#fff">
+          <span style="position:absolute;left:0;right:0;top:0;height:2px;background:rgba(255,255,255,.18)"></span>
+          <span data-prog="{{ $index }}" style="position:absolute;left:0;right:0;top:0;height:2px;background:#F39A1E;transform:scaleX(0);transform-origin:left"></span>
+          <span style="display:flex;gap:8px"><span style="color:#F39A1E">{{ s.num }}</span><span>{{ s.short }}</span></span>
+        </button>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="about" data-screen-label="About" style="scroll-margin-top:72px">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(40px,6vw,96px)">
+    <div>
+      <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Company overview</p>
+      <div style="height:1px;background:rgba(29,31,32,.16);margin:14px 0 28px"></div>
+      <h2 style="margin:0;font:600 clamp(34px,4.4vw,58px)/1 var(--font-heading);text-transform:uppercase">Dar Alwahaj Technical Services LLC</h2>
+      <p style="margin:24px 0 0;font:400 17px/1.65 var(--font-body);color:rgba(29,31,32,.8)">Dar Alwahaj Technical Services LLC, operating under the brand DAW Tech Services, is a UAE-based technical services company providing integrated engineering, infrastructure, security, facility management, and maintenance solutions.</p>
+      <p style="margin:16px 0 0;font:400 17px/1.65 var(--font-body);color:rgba(29,31,32,.8)">We deliver reliable and professional services to commercial, industrial, residential, and specialized facilities, with a strong focus on data centers, CCTV and security systems, structured cabling, fiber optics, HVAC, electromechanical systems, and cleaning services.</p>
+      <p style="margin:16px 0 0;font:400 17px/1.65 var(--font-body);color:rgba(29,31,32,.8)">Our objective is to provide clients with dependable technical solutions that improve operational efficiency, safety, reliability, and long-term asset performance.</p>
+    </div>
+    <div style="display:grid;gap:32px;align-content:start">
+      <div class="blueprint" style="padding:clamp(24px,3vw,36px)">
+        <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Our vision</p>
+        <p style="margin:16px 0 0;font:500 clamp(22px,2.2vw,28px)/1.2 var(--font-heading);color:#1d1f20">To become a trusted technical services partner in the UAE, recognized for quality, reliability, innovation, and professional service delivery.</p>
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      </div>
+      <div class="blueprint" style="padding:clamp(24px,3vw,36px)">
+        <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Our mission</p>
+        <p style="margin:16px 0 0;font:400 16px/1.6 var(--font-body);color:rgba(29,31,32,.8)">To provide integrated technical and facility support solutions that meet our clients' operational requirements through:</p>
+        <ul style="list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 24px">
+          <sc-for list="{{ mission }}" as="m" hint-placeholder-count="7">
+            <li style="display:flex;gap:10px;align-items:flex-start;font:500 15px/1.4 var(--font-body)"><span style="flex:none;width:8px;height:8px;margin-top:6px;background:#F39A1E"></span>{{ m }}</li>
+          </sc-for>
+        </ul>
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" data-screen-label="Services" style="scroll-margin-top:72px;border-top:1px solid rgba(29,31,32,.12)">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px)">
+    <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Our core services</p>
+    <div style="height:1px;background:rgba(29,31,32,.16);margin:14px 0 28px"></div>
+    <h2 style="margin:0;max-width:18ch;font:600 clamp(34px,4.4vw,58px)/1 var(--font-heading);text-transform:uppercase">Six disciplines, one service partner</h2>
+
+    <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(24px,4vw,56px);align-items:start">
+      <div role="tablist" style="display:flex;flex-direction:column;border-top:1px solid rgba(29,31,32,.16)">
+        <sc-for list="{{ svcTabs }}" as="t" hint-placeholder-count="6">
+          <button type="button" role="tab" onClick="{{ t.select }}" style="display:flex;align-items:center;gap:16px;text-align:left;padding:18px 16px;min-height:64px;background:{{ t.bg }};color:{{ t.color }};border:0;border-bottom:1px solid rgba(29,31,32,.16);cursor:pointer;transition:background .25s,color .25s" style-hover="background:{{ t.hoverBg }}">
+            <span style="font:600 13px/1 var(--font-body);letter-spacing:.08em;color:{{ t.numColor }}">{{ t.num }}</span>
+            <span style="flex:none">{{ t.iconEl }}</span>
+            <span style="font:600 19px/1.1 var(--font-heading);letter-spacing:.02em;text-transform:uppercase">{{ t.name }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div ref="{{ panelRef }}" class="blueprint" style="grid-column:span 2;min-width:0;padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:clamp(24px,3vw,40px)">
+        <div class="blueprint duotone" style="min-height:280px;aspect-ratio:4/5;max-height:520px">
+          <image-slot id="{{ svcCur.slotId }}" shape="rect" placeholder="Drop a photo here"></image-slot>
+          <i class="corner tl" style="pointer-events:none"></i><i class="corner tr" style="pointer-events:none"></i><i class="corner bl" style="pointer-events:none"></i><i class="corner br" style="pointer-events:none"></i>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;color:#0B4A8F">{{ svcCur.iconLg }}<span style="font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase">Service {{ svcCur.num }}</span></div>
+          <h3 style="margin:18px 0 0;font:600 clamp(28px,3vw,40px)/1 var(--font-heading);text-transform:uppercase">{{ svcCur.name }}</h3>
+          <p style="margin:16px 0 0;font:400 16px/1.6 var(--font-body);color:rgba(29,31,32,.8)">{{ svcCur.desc }}</p>
+          <p style="margin:26px 0 12px;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Services include</p>
+          <ul style="list-style:none;margin:0;padding:0;border-top:1px solid rgba(29,31,32,.14)">
+            <sc-for list="{{ svcCur.items }}" as="it" hint-placeholder-count="8">
+              <li style="display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(29,31,32,.1);font:500 15px/1.35 var(--font-body)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F39A1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M20 6 9 17l-5-5"></path></svg>{{ it }}
+              </li>
+            </sc-for>
+          </ul>
+        </div>
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(72px,8vw,112px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:24px clamp(32px,5vw,80px);align-items:end">
+      <div>
+        <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Integrated technical solutions</p>
+        <h3 style="margin:16px 0 0;font:600 clamp(28px,3vw,40px)/1.02 var(--font-heading);text-transform:uppercase">Multiple technical services through a single professional service partner</h3>
+      </div>
+      <p style="margin:0;font:400 16px/1.6 var(--font-body);color:rgba(29,31,32,.8)">At DAW Tech Services, our strength lies in providing multiple technical services through a single professional service partner. This integrated approach can help clients simplify service coordination while maintaining consistent standards across their facilities.</p>
+    </div>
+    <div style="margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 10px">
+      <sc-for list="{{ chain }}" as="c" hint-placeholder-count="7">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="blueprint" style="padding:16px 20px;font:600 18px/1 var(--font-heading);letter-spacing:.04em;text-transform:uppercase;color:#0B4A8F;white-space:nowrap">{{ c.label }}<i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
+          <sc-if value="{{ c.arrow }}" hint-placeholder-val="{{ true }}">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F39A1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Why us" style="border-top:1px solid rgba(29,31,32,.12)">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px)">
+    <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Why choose DAW Tech Services</p>
+    <div style="height:1px;background:rgba(29,31,32,.16);margin:14px 0 40px"></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:32px">
+      <sc-for list="{{ why }}" as="w" hint-placeholder-count="5">
+        <div class="blueprint" style="padding:28px 24px 30px;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s" style-hover="transform:translateY(-6px);border-color:#0B4A8F">
+          <div style="font:600 44px/1 var(--font-heading);color:#F39A1E">{{ w.num }}</div>
+          <h3 style="margin:22px 0 0;font:600 22px/1.05 var(--font-heading);text-transform:uppercase">{{ w.title }}</h3>
+          <p style="margin:12px 0 0;font:400 15px/1.55 var(--font-body);color:rgba(29,31,32,.78)">{{ w.text }}</p>
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="approach" data-screen-label="Approach" style="scroll-margin-top:72px;background:#062551;color:#fff;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;pointer-events:none"></div>
+  <div style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px)">
+    <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#F39A1E">Our service approach</p>
+    <div style="height:1px;background:rgba(255,255,255,.2);margin:14px 0 28px"></div>
+    <h2 style="margin:0;max-width:20ch;font:600 clamp(34px,4.4vw,58px)/1 var(--font-heading);text-transform:uppercase">From first survey to ongoing support</h2>
+    <ol style="list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:40px 28px">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+        <li style="position:relative;padding-top:28px;border-top:1px solid rgba(255,255,255,.28)">
+          <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;background:#F39A1E"></span>
+          <div style="font:600 15px/1 var(--font-body);letter-spacing:.1em;color:#F39A1E">{{ st.num }}</div>
+          <h3 style="margin:14px 0 0;font:600 26px/1 var(--font-heading);letter-spacing:.03em;text-transform:uppercase;color:#fff">{{ st.title }}</h3>
+          <p style="margin:12px 0 0;font:400 15px/1.55 var(--font-body);color:rgba(255,255,255,.78)">{{ st.text }}</p>
+        </li>
+      </sc-for>
+    </ol>
+  </div>
+</section>
+
+<section id="clients" data-screen-label="Quality and clients" style="scroll-margin-top:72px">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(48px,6vw,96px)">
+    <div>
+      <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Quality &amp; safety</p>
+      <div style="height:1px;background:rgba(29,31,32,.16);margin:14px 0 28px"></div>
+      <h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.02 var(--font-heading);text-transform:uppercase">Safety and quality are fundamental to our service approach.</h2>
+      <p style="margin:20px 0 0;font:400 16px/1.6 var(--font-body);color:rgba(29,31,32,.8)">We aim to ensure that all activities are performed using appropriate procedures, qualified personnel, suitable equipment, and responsible work practices.</p>
+      <p style="margin:28px 0 12px;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Our focus includes</p>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 28px">
+        <sc-for list="{{ quality }}" as="q" hint-placeholder-count="7">
+          <li style="display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(29,31,32,.1);font:500 15px/1.35 var(--font-body)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B4A8F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>{{ q }}
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+    <div>
+      <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Our clients</p>
+      <div style="height:1px;background:rgba(29,31,32,.16);margin:14px 0 28px"></div>
+      <h2 style="margin:0;font:600 clamp(30px,3.6vw,46px)/1.02 var(--font-heading);text-transform:uppercase">We support a wide range of customers and facilities</h2>
+      <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));border-top:1px solid rgba(29,31,32,.16);border-left:1px solid rgba(29,31,32,.16)">
+        <sc-for list="{{ clients }}" as="cl" hint-placeholder-count="10">
+          <div style="padding:20px 18px;min-height:84px;box-sizing:border-box;border-right:1px solid rgba(29,31,32,.16);border-bottom:1px solid rgba(29,31,32,.16);display:flex;flex-direction:column;justify-content:space-between;gap:10px;transition:background .25s" style-hover="background:rgba(11,74,143,.06)">
+            <span style="font:600 12px/1 var(--font-body);letter-spacing:.1em;color:#0B4A8F">{{ cl.num }}</span>
+            <span style="font:600 18px/1.1 var(--font-heading);letter-spacing:.02em;text-transform:uppercase">{{ cl.name }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Future direction" style="border-top:1px solid rgba(29,31,32,.12)">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px clamp(40px,6vw,96px)">
+    <div>
+      <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Future direction</p>
+      <h2 style="margin:16px 0 0;font:600 clamp(30px,3.6vw,46px)/1.02 var(--font-heading);text-transform:uppercase">Long-term partnerships, built on dependable service</h2>
+    </div>
+    <div>
+      <p style="margin:0;font:400 17px/1.65 var(--font-body);color:rgba(29,31,32,.8)">DAW Tech Services aims to expand its technical capabilities and establish long-term partnerships with organizations requiring dependable infrastructure, maintenance, security, and facility-support services.</p>
+      <p style="margin:16px 0 0;font:400 17px/1.65 var(--font-body);color:rgba(29,31,32,.8)">We are committed to developing our people, improving our technical capabilities, adopting modern technologies, and delivering services that create long-term value for our clients.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="scroll-margin-top:72px;border-top:1px solid rgba(29,31,32,.12)">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(72px,9vw,128px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px)">
+    <div>
+      <p style="margin:0;font:600 13px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#0B4A8F">Contact us</p>
+      <div style="height:1px;background:rgba(29,31,32,.16);margin:14px 0 28px"></div>
+      <h2 style="margin:0;font:600 clamp(34px,4.4vw,58px)/1 var(--font-heading);text-transform:uppercase">Technical solutions you can trust</h2>
+      <div style="margin-top:36px;display:grid;gap:0;border-top:1px solid rgba(29,31,32,.16)">
+        <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(29,31,32,.16)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B4A8F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><rect x="4" y="2" width="16" height="20" rx="1"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"></path></svg>
+          <div><div style="font:600 12px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:rgba(29,31,32,.62)">Company</div><div style="margin-top:6px;font:500 16px/1.4 var(--font-body)">Dar Alwahaj Technical Services LLC<br>Brand: DAW Tech Services</div></div>
+        </div>
+        <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(29,31,32,.16)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B4A8F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div><div style="font:600 12px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:rgba(29,31,32,.62)">Location</div><div style="margin-top:6px;font:500 16px/1.4 var(--font-body)">Dubai, United Arab Emirates</div></div>
+        </div>
+        <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(29,31,32,.16)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B4A8F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          <div><div style="font:600 12px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:rgba(29,31,32,.62)">Email</div><a href="mailto:info@dawtechservices.com" style="display:inline-block;margin-top:6px;font:500 16px/1.4 var(--font-body)">info@dawtechservices.com</a></div>
+        </div>
+        <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(29,31,32,.16)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B4A8F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          <div><div style="font:600 12px/1 var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:rgba(29,31,32,.62)">Website</div><a href="https://dawtechservices.com" style="display:inline-block;margin-top:6px;font:500 16px/1.4 var(--font-body)">dawtechservices.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <form onSubmit="{{ onSubmit }}" class="blueprint" style="padding:clamp(24px,3.5vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px;align-content:start">
+      <div style="grid-column:1/-1">
+        <h3 style="margin:0;font:600 28px/1 var(--font-heading);text-transform:uppercase">Request a quote</h3>
+        <p style="margin:10px 0 0;font:400 15px/1.5 var(--font-body);color:rgba(29,31,32,.75)">Tell us about your site and requirements.</p>
+      </div>
+      <label class="field" style="display:grid;gap:8px;font:600 12px/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase">Name<input class="input" name="name" required="" autocomplete="name" style="min-height:44px;font:400 16px var(--font-body);letter-spacing:0;text-transform:none"></label>
+      <label class="field" style="display:grid;gap:8px;font:600 12px/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase">Company<input class="input" name="company" autocomplete="organization" style="min-height:44px;font:400 16px var(--font-body);letter-spacing:0;text-transform:none"></label>
+      <label class="field" style="display:grid;gap:8px;font:600 12px/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase">Email<input class="input" type="email" name="email" required="" autocomplete="email" style="min-height:44px;font:400 16px var(--font-body);letter-spacing:0;text-transform:none"></label>
+      <label class="field" style="display:grid;gap:8px;font:600 12px/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase">Service
+        <select class="input" name="service" style="min-height:44px;font:400 16px var(--font-body);letter-spacing:0;text-transform:none">
+          <sc-for list="{{ serviceNames }}" as="sn" hint-placeholder-count="6"><option>{{ sn }}</option></sc-for>
+          <option>Integrated / multiple services</option>
+        </select>
+      </label>
+      <label class="field" style="grid-column:1/-1;display:grid;gap:8px;font:600 12px/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase">Message<textarea class="input" name="message" rows="5" style="font:400 16px/1.5 var(--font-body);letter-spacing:0;text-transform:none;resize:vertical"></textarea></label>
+      <div style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:16px">
+        <button type="submit" class="btn btn-primary blueprint" style="font:600 15px/1 var(--font-body);letter-spacing:.06em;text-transform:uppercase;padding:16px 26px;gap:10px">Send request
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        </button>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <span style="font:500 15px/1.4 var(--font-body);color:#0B4A8F">Your email app has opened with the request — send it to reach our team.</span>
+        </sc-if>
+      </div>
+      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+    </form>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="background:#041B3D;color:rgba(255,255,255,.78)">
+  <div style="max-width:1280px;margin:0 auto;padding:56px clamp(20px,5vw,64px) 28px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px">
+      <img src="assets/logo-white.png" alt="DAW Tech Services" style="height:52px;width:auto;display:block">
+      <p style="margin:0;font:600 13px/1.6 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:#F39A1E">Smart solutions · Reliable services · A better tomorrow</p>
+    </div>
+    <div style="height:1px;background:rgba(255,255,255,.14);margin:36px 0 24px"></div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;font:400 14px/1.6 var(--font-body)">
+      <span>Data Center | CCTV | Fiber Optics | Cat6 | HVAC | Electromechanical | Cleaning Services</span>
+      <span>© 2026 Dar Alwahaj Technical Services LLC · Dubai, UAE</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero slider&quot;},&quot;interval&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:12,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero slider&quot;},&quot;sliderStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;coverflow&quot;,&quot;stack&quot;],&quot;default&quot;:&quot;coverflow&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero slider&quot;}}">
+const IC = {
+  server: [['rect',{x:2,y:2,width:20,height:8,rx:2}],['rect',{x:2,y:14,width:20,height:8,rx:2}],['path','M6 6h.01'],['path','M6 18h.01']],
+  cctv: [['path','M16.75 12h3.632a1 1 0 0 1 .894 1.447l-2.034 4.069a1 1 0 0 1-1.708.134l-2.124-2.97'],['path','M17.106 9.053a1 1 0 0 1 .447 1.341l-3.106 6.211a1 1 0 0 1-1.342.447L3.61 12.3a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3z'],['path','M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15'],['path','M2 21v-4'],['path','M7 9h.01']],
+  network: [['rect',{x:16,y:16,width:6,height:6,rx:1}],['rect',{x:2,y:16,width:6,height:6,rx:1}],['rect',{x:9,y:2,width:6,height:6,rx:1}],['path','M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3'],['path','M12 12V8']],
+  fan: [['path','M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z'],['path','M12 12v.01']],
+  zap: [['path','M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z']],
+  sparkles: [['path','M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z'],['path','M20 3v4'],['path','M22 5h-4'],['path','M4 17v2'],['path','M5 18H3']]
+};
+function icon(n, s, sw) {
+  return React.createElement('svg', {width:s||24,height:s||24,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:sw||1.5,strokeLinecap:'round',strokeLinejoin:'round',style:{display:'block'}},
+    IC[n].map((e,k)=>React.createElement(e[0], Object.assign({key:k}, typeof e[1]==='string'?{d:e[1]}:e[1]))));
+}
+const pad = n => String(n).padStart(2,'0');
+const SERVICES = [
+  {id:'dc',icon:'server',name:'Data Center Services',short:'Data Center',photo:'placeholder-hero-dc.svg',desc:'We provide technical support and infrastructure services for data center environments, with an emphasis on reliability, organization, safety, and operational continuity.',items:['Data center infrastructure support','Structured cabling','Fibre optic infrastructure','Rack and cabinet installation','Cable management','Equipment installation support','Preventive maintenance','Technical troubleshooting','Infrastructure inspection and documentation']},
+  {id:'cctv',icon:'cctv',name:'CCTV & Security Systems',short:'CCTV & Security',photo:'placeholder-hero-cctv.svg',desc:'DAW Tech Services provides CCTV and security infrastructure solutions designed to improve monitoring, security, and operational visibility.',items:['CCTV installation','IP camera systems','Camera configuration','NVR/DVR installation','CCTV maintenance','Troubleshooting and repairs','System upgrades','Cable installation and termination']},
+  {id:'fiber',icon:'network',name:'Fibre Optic & Structured Cabling',short:'Fibre & Cabling',photo:'placeholder-hero-fiber.svg',desc:'We provide professional network infrastructure solutions for offices, commercial facilities, data centers, and other technical environments.',items:['Fibre optic cable installation','Fibre optic termination','Fibre optic testing','Fibre optic troubleshooting','Cat6/Cat6A cabling','Network point installation','Patch panel installation','Rack and cable management','Cable labeling and documentation']},
+  {id:'hvac',icon:'fan',name:'HVAC Services',short:'HVAC',photo:'placeholder-hero-hvac.svg',desc:'Our HVAC services support comfortable, efficient, and reliable building environments.',items:['HVAC installation support','Preventive maintenance','Corrective maintenance','AC servicing','Troubleshooting','Equipment inspection','Ductwork-related services','HVAC system support']},
+  {id:'em',icon:'zap',name:'Electromechanical Services',short:'Electromechanical',photo:'placeholder-hero-em.svg',desc:'DAW Tech Services provides technical support for electrical and mechanical building systems.',items:['Electrical maintenance','Mechanical maintenance','Equipment installation support','Preventive maintenance','Corrective maintenance','Troubleshooting','Building systems support','Technical inspections']},
+  {id:'clean',icon:'sparkles',name:'Cleaning Services',short:'Cleaning',photo:'placeholder-hero-clean.svg',desc:'We provide professional cleaning and facility-support services for commercial and other managed environments.',items:['Office cleaning','Commercial cleaning','Building cleaning','Common-area cleaning','Deep cleaning','Routine cleaning','Facility supports services']}
+];
+const N = SERVICES.length;
+const MISSION = ['Professional workmanship','Quality-focused service delivery','Reliable project execution','Safety-conscious operations','Responsive customer support','Efficient maintenance solutions','Continuous improvement and innovation'];
+const CHAIN = ['Data Center','CCTV','Fiber Optics','Cat6','HVAC','Electromechanical','Cleaning'];
+const WHY = [
+  ['Professional Approach','We approach every project with attention to quality, safety, documentation, and client requirements.'],
+  ['Integrated Services','Our range of technical and facility services allows clients to coordinate multiple requirements with one service provider.'],
+  ['Reliable Support','We aim to provide responsive technical support and practical solutions to minimize operational disruption.'],
+  ['Quality Workmanship','Our focus is on delivering work that is organized, dependable, and aligned with project requirements.'],
+  ['Client Focus','We build our services around the specific operational needs and expectations of each client.']
+];
+const STEPS = [
+  ['Understand',"We identify the client's requirements, site conditions, and operational objectives."],
+  ['Plan','We develop an appropriate technical approach, scope of work, and execution plan.'],
+  ['Execute','Our team carries out the work professionally while maintaining safety and quality standards.'],
+  ['Test & Inspect','Systems and completed work are checked to ensure they meet the required specifications.'],
+  ['Support','We provide ongoing maintenance, troubleshooting, and technical support where required.']
+];
+const QUALITY = ['Workplace safety','Quality workmanship','Proper installation practices','Preventive maintenance','Site cleanliness','Client requirements','Professional documentation'];
+const CLIENTS = ['Commercial buildings','Offices','Data centers','Retail facilities','Residential buildings','Industrial facilities','Warehouses','Property management companies','Facility management companies','Contractors and system integrators'];
+const NAV = [{href:'#about',label:'About'},{href:'#services',label:'Services'},{href:'#approach',label:'Approach'},{href:'#clients',label:'Clients'},{href:'#contact',label:'Contact'}];
+
+class Component extends DCLogic {
+  state = { i: 0, svc: 0, menu: false, scrolled: false, w: window.innerWidth, sent: false };
+  heroRef = React.createRef(); stageRef = React.createRef(); textRef = React.createRef(); panelRef = React.createRef();
+  mx = 0; my = 0; tmx = 0; tmy = 0; hover = false;
+
+  componentDidMount() {
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.onResize = () => this.setState({ w: window.innerWidth });
+    this.onScroll = () => { const s = window.scrollY > 40; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    this.onKey = e => {
+      const t = e.target; if (t && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)) return;
+      const h = this.heroRef.current; if (!h || window.scrollY > h.offsetHeight * 0.6) return;
+      if (e.key === 'ArrowRight') this.go(this.state.i + 1);
+      if (e.key === 'ArrowLeft') this.go(this.state.i - 1);
+    };
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('keydown', this.onKey);
+    const loop = () => {
+      this.mx += (this.tmx - this.mx) * 0.07; this.my += (this.tmy - this.my) * 0.07;
+      const h = this.heroRef.current;
+      if (h) {
+        h.style.setProperty('--mx', this.mx.toFixed(4)); h.style.setProperty('--my', this.my.toFixed(4));
+        h.style.setProperty('--sy', this.reduced ? 0 : Math.min(window.scrollY, 1000).toFixed(1));
+      }
+      this.raf = requestAnimationFrame(loop);
+    };
+    this.raf = requestAnimationFrame(loop);
+    this.onScroll(); this.layout(); this.startTimer();
+    setTimeout(() => this.layout(), 300);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.onScroll); window.removeEventListener('keydown', this.onKey);
+    cancelAnimationFrame(this.raf); if (this.anim) this.anim.cancel();
+  }
+  componentDidUpdate(pp, ps) {
+    const p = this.props;
+    if (ps.i !== this.state.i || ps.w !== this.state.w || pp.sliderStyle !== p.sliderStyle) this.layout();
+    if (ps.i !== this.state.i) {
+      const t = this.textRef.current;
+      if (t && t.animate) t.animate([{ opacity: 0, transform: 'translateY(18px)' }, { opacity: 1, transform: 'none' }], { duration: 650, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    }
+    if (ps.i !== this.state.i || pp.autoplay !== p.autoplay || pp.interval !== p.interval) this.startTimer();
+    if (ps.svc !== this.state.svc) {
+      const el = this.panelRef.current;
+      if (el && el.animate) el.animate([{ opacity: 0, transform: 'translateY(12px)' }, { opacity: 1, transform: 'none' }], { duration: 500, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    }
+  }
+
+  startTimer() {
+    const h = this.heroRef.current; if (!h) return;
+    if (this.anim) { this.anim.onfinish = null; this.anim.cancel(); }
+    h.querySelectorAll('[data-prog]').forEach(b => { b.style.transform = 'scaleX(0)'; });
+    const bar = h.querySelector('[data-prog="' + this.state.i + '"]'); if (!bar) return;
+    if (this.props.autoplay === false) { bar.style.transform = 'scaleX(1)'; return; }
+    const ms = (this.props.interval ?? 6) * 1000;
+    this.anim = bar.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: ms, fill: 'forwards' });
+    this.anim.onfinish = () => this.go(this.state.i + 1);
+    if (this.hover) this.anim.pause();
+  }
+  layout() {
+    const st = this.stageRef.current; if (!st) return;
+    const cards = st.querySelectorAll('[data-card]'); if (!cards.length) return;
+    const cw = cards[0].offsetWidth, narrow = this.state.w < 720, mode = this.props.sliderStyle || 'coverflow';
+    cards.forEach((c, k) => {
+      let o = k - this.state.i; if (o > N / 2) o -= N; if (o < -N / 2 + 0.5) o += N;
+      const a = Math.abs(o); let tf, op, br;
+      if (mode === 'stack') {
+        if (o < 0) { tf = `translate3d(${-cw * 1.1}px,${cw * 0.05}px,120px) rotateY(28deg) rotateZ(-8deg)`; op = 0; br = 1; }
+        else { tf = `translate3d(${o * cw * 0.14}px,${-o * cw * 0.07}px,${-o * 150}px) rotateZ(${o * 3}deg)`; op = o >= 4 ? 0 : 1 - o * 0.18; br = 1 - o * 0.2; }
+      } else {
+        const tx = o * cw * (narrow ? 0.4 : 0.62), ry = Math.max(-60, Math.min(60, -o * 42));
+        tf = `translate3d(${tx}px,0,${-a * 240}px) rotateY(${ry}deg)`; op = a >= 3 ? 0 : 1 - a * 0.2; br = 1 - a * 0.3;
+      }
+      c.style.transform = tf; c.style.opacity = op; c.style.filter = `brightness(${br})`;
+      c.style.zIndex = String(20 - a); c.style.pointerEvents = op < 0.05 ? 'none' : 'auto';
+      const hit = c.querySelector('[data-hit]'); if (hit) hit.style.display = k === this.state.i ? 'none' : 'block';
+    });
+  }
+  scrollToId(id) {
+    const el = document.getElementById(id); if (!el) return;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 64, behavior: 'smooth' });
+  }
+  renderVals() {
+    const { i, svc, menu, scrolled, w, sent } = this.state;
+    const isWide = w >= 960, light = scrolled || menu;
+    const cur = SERVICES[i], sc = SERVICES[svc];
+    return {
+      isWide, isNarrow: !isWide, menuOpen: menu, menuClosed: !menu, showMobileMenu: menu && !isWide,
+      toggleMenu: () => this.setState({ menu: !menu }), closeMenu: () => this.setState({ menu: false }),
+      headerBg: light ? 'rgba(242,242,243,.94)' : 'transparent',
+      headerBorder: light ? 'rgba(29,31,32,.12)' : 'transparent',
+      headerBorderStrong: light ? 'rgba(29,31,32,.2)' : 'rgba(255,255,255,.3)',
+      linkColor: light ? '#1d1f20' : '#fff',
+      scrolled: scrolled,
+      navLinks: NAV,
+      heroRef: this.heroRef, stageRef: this.stageRef, textRef: this.textRef, panelRef: this.panelRef,
+      total: pad(N),
+      cur: { num: pad(i + 1), name: cur.name, desc: cur.desc },
+      slides: SERVICES.map((s, k) => ({
+        num: pad(k + 1), name: s.name, short: s.short, slotId: 'hero-' + s.id,
+        placeholder: 'Drop a ' + s.photo + ' photo', iconEl: icon(s.icon, 30),
+        segColor: k === i ? '#fff' : 'rgba(255,255,255,.6)', go: () => this.go(k)
+      })),
+      prev: () => this.go(this.state.i - 1), next: () => this.go(this.state.i + 1),
+      exploreCurrent: () => { this.setState({ svc: this.state.i }); this.scrollToId('services'); },
+      onHeroMove: e => {
+        if (this.reduced) return; const r = this.heroRef.current.getBoundingClientRect();
+        this.tmx = ((e.clientX - r.left) / r.width) * 2 - 1; this.tmy = ((e.clientY - r.top) / r.height) * 2 - 1;
+      },
+      onHeroLeave: () => { this.tmx = 0; this.tmy = 0; },
+      onStageEnter: () => { this.hover = true; if (this.anim) this.anim.pause(); },
+      onStageLeave: () => { this.hover = false; if (this.anim && this.anim.playState === 'paused') this.anim.play(); },
+      onDown: e => { this.x0 = e.clientX; },
+      onUp: e => { if (this.x0 == null) return; const dx = e.clientX - this.x0; this.x0 = null; if (Math.abs(dx) > 50) this.go(i + (dx < 0 ? 1 : -1)); },
+      mission: MISSION,
+      svcTabs: SERVICES.map((s, k) => {
+        const on = k === svc;
+        return { num: pad(k + 1), name: s.name, iconEl: icon(s.icon, 22), select: () => this.setState({ svc: k }),
+          bg: on ? '#0B4A8F' : 'transparent', hoverBg: on ? '#0B4A8F' : 'rgba(11,74,143,.07)',
+          color: on ? '#fff' : '#1d1f20', numColor: on ? '#F39A1E' : '#0B4A8F' };
+      }),
+      svcCur: { num: pad(svc + 1), name: sc.name, desc: sc.desc, items: sc.items, iconLg: icon(sc.icon, 30), slotId: 'svc-' + sc.id, placeholder: 'Drop a ' + sc.photo + ' photo' },
+      chain: CHAIN.map((c, k) => ({ label: c, arrow: k < CHAIN.length - 1 })),
+      why: WHY.map((x, k) => ({ num: pad(k + 1), title: x[0], text: x[1] })),
+      steps: STEPS.map((x, k) => ({ num: pad(k + 1), title: x[0], text: x[1] })),
+      quality: QUALITY,
+      clients: CLIENTS.map((c, k) => ({ num: pad(k + 1), name: c })),
+      serviceNames: SERVICES.map(s => s.name),
+      sent,
+      onSubmit: e => {
+        e.preventDefault(); const f = new FormData(e.target);
+        const body = `Name: ${f.get('name')}\nCompany: ${f.get('company') || '-'}\nEmail: ${f.get('email')}\nService: ${f.get('service')}\n\n${f.get('message') || ''}`;
+        window.location.href = 'mailto:info@dawtechservices.com?subject=' + encodeURIComponent('Quote request — ' + f.get('service')) + '&body=' + encodeURIComponent(body);
+        this.setState({ sent: true });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

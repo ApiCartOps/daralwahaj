@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f2f2f3;
+  color: #1d1f20;
+}
+
+::selection {
+  background: #f39a1e;
+  color: #041b3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+:focus {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid #0b4a8f;
+  outline-offset: 2px;
+}
+
+/* ── Blueprint wireframe frame ───────────────────────────────────────────
+   Ported from the Industry design system: a hairline-bordered box with a
+   "+" registration mark drawn just outside each corner. Cards, figures and
+   the primary button all wear this frame.
+
+   These live in Tailwind's `components` layer (injected before
+   `utilities`), so a utility class on the same element — e.g.
+   `border-white/30` — still wins the cascade over this rule's own
+   `border` declaration despite matching specificity. */
+@layer components {
+  .blueprint {
+    position: relative;
+    border: 1px solid rgba(29, 31, 32, 0.16);
+  }
+  .blueprint.duotone {
+    overflow: visible;
+  }
+  .corner {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    color: rgba(29, 31, 32, 0.55);
+    pointer-events: none;
+  }
+  .corner::before,
+  .corner::after {
+    content: "";
+    position: absolute;
+    background: currentColor;
+  }
+  .corner::before {
+    left: 5px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+  }
+  .corner::after {
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+  .corner.tl {
+    top: -6px;
+    left: -6px;
+  }
+  .corner.tr {
+    top: -6px;
+    right: -6px;
+  }
+  .corner.bl {
+    bottom: -6px;
+    left: -6px;
+  }
+  .corner.br {
+    bottom: -6px;
+    right: -6px;
+  }
+
+  /* Photographs are duotoned into the steel/navy accent, like a screen
+     print that re-colors with the theme. */
+  .duotone {
+    position: relative;
+    overflow: hidden;
+  }
+  .duotone::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: #0b4a8f;
+    mix-blend-mode: color;
+  }
+}
