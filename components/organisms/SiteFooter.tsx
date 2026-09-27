@@ -21,6 +21,14 @@ export function SiteFooter() {
           <span>Data Center | CCTV | Fiber Optics | Cat6 | HVAC | Electromechanical | Cleaning Services</span>
           <span>© 2026 Dar Alwahaj Technical Services LLC · Dubai, UAE</span>
         </div>
+        <div className="mt-4 pt-4 border-t border-white/12 text-center font-body font-normal text-xs leading-[1.6] text-white/60">
+          <p className="m-0">
+            Design and Developed by{" "}
+            <a href="https://junkwebhosting.com" target="_blank" rel="noopener noreferrer" className="text-orange hover:text-orange-light transition-colors">
+              JWD · junkwebhosting.com
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
