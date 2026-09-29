@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import { SEOStructuredData } from "@/components/SEOStructuredData";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const barlow = Barlow({
@@ -111,6 +112,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased overflow-x-hidden [text-wrap:pretty]">
         {children}
+        <Analytics />
       </body>
     </html>
   );
