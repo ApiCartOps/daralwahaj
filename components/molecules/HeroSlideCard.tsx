@@ -32,7 +32,7 @@ export function HeroSlideCard({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={`/assets/${service.photo}`}
-          alt={`${service.name} - ${service.description}`}
+          alt={`${service.name} - ${service.desc}`}
           title={service.name}
           className="absolute inset-0 h-full w-full object-cover"
           loading="lazy"

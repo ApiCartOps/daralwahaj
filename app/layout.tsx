@@ -67,7 +67,6 @@ export const metadata: Metadata = {
   },
 
   // Additional SEO
-  canonical: "https://dawtechservices.com",
   robots: {
     index: true,
     follow: true,
